@@ -1,4 +1,6 @@
-# Sync TUI
+# Musubi TUI
+
+**Musubi (結び)** - *"knot, connection, binding"* - A visual tapestry of your connected tasks.
 
 A terminal user interface for managing synchronization between Todoist, Things 3, and Obsidian.
 
@@ -81,12 +83,12 @@ TUI Application
 
 ## Configuration
 
-Configuration is stored in `~/.todoist-things-sync/config.json`:
+Configuration is stored in `~/.musubi/config.json`:
 
 ```json
 {
   "api": {
-    "workerUrl": "https://todoist-things-sync.thalys.workers.dev",
+    "workerUrl": "https://musubi-sync.workers.dev",
     "todoistApiToken": "your-token-here"
   },
   "sync": {
@@ -98,7 +100,7 @@ Configuration is stored in `~/.todoist-things-sync/config.json`:
 
 ## Logs
 
-Logs are stored in `~/.todoist-things-sync/logs/`:
+Logs are stored in `~/.musubi/logs/`:
 - `combined.log` - All logs
 - `error.log` - Errors only
 
@@ -135,3 +137,12 @@ Press `l` in the TUI to open a read-only log viewer.
 - [ ] Scheduled sync configuration
 - [ ] Export/import functionality
 - [ ] Performance metrics dashboard
+
+## Related Projects
+
+- [musubi-sync-engine](https://github.com/thalysguimaraes/musubi-sync-engine) - Core sync engine
+- [musubi-obsidian-plugin](https://github.com/thalysguimaraes/musubi-obsidian-plugin) - Obsidian plugin for three-way sync
+
+## License
+
+MIT
