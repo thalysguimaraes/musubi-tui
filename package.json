@@ -1,0 +1,50 @@
+{
+  "name": "todoist-things-tui",
+  "version": "1.0.0",
+  "description": "Terminal UI for managing Todoist-Things-Obsidian sync",
+  "main": "dist/index.js",
+  "bin": {
+    "todoist-sync": "dist/index.js",
+    "todoist-things-tui": "dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest",
+    "lint": "eslint src --ext .ts,.tsx",
+    "configure": "node scripts/configure.js"
+  },
+  "keywords": [
+    "todoist",
+    "things",
+    "obsidian",
+    "sync",
+    "tui",
+    "terminal"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^1.0.11",
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "dotenv": "^16.3.1",
+    "execa": "^8.0.1",
+    "inquirer": "^12.9.4",
+    "node-fetch": "^3.3.2",
+    "ora": "^7.0.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/blessed": "^0.1.25",
+    "@types/node": "^20.10.4",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "eslint": "^8.55.0",
+    "tsx": "^4.6.2",
+    "typescript": "^5.3.3",
+    "vitest": "^3.2.4"
+  }
+}
