@@ -67,7 +67,7 @@ export class ConfigManager {
   private getDefaultConfig(): Config {
     return {
       api: {
-        workerUrl: 'https://todoist-things-sync.thalys.workers.dev'
+        workerUrl: 'https://musubi-sync.workers.dev'
       },
       sync: {
         autoSync: true,
@@ -76,7 +76,7 @@ export class ConfigManager {
       },
       paths: {
         scripts: path.join(__dirname, '../../../../scripts'),
-        logs: path.join(os.homedir(), '.todoist-things-sync', 'logs')
+        logs: path.join(os.homedir(), '.musubi', 'logs')
       }
     };
   }

@@ -7,7 +7,7 @@ export class Logger {
   private winston: winston.Logger;
   
   constructor() {
-    const logDir = path.join(os.homedir(), '.todoist-things-sync', 'logs');
+    const logDir = path.join(os.homedir(), '.musubi', 'logs');
     try { fs.mkdirSync(logDir, { recursive: true }); } catch (_) {}
     
     this.winston = winston.createLogger({

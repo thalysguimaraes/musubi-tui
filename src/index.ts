@@ -21,7 +21,7 @@ class TodoistThingsTUI {
     // Create the main screen
     this.screen = blessed.screen({
       smartCSR: true,
-      title: 'Todoist-Things-Obsidian Sync Manager'
+      title: 'Musubi Sync Manager'
     });
 
     // Initialize dashboard
@@ -83,8 +83,29 @@ class TodoistThingsTUI {
       this.dashboard.quickSync();
     });
 
-    this.screen.key(['f'], () => {
-      this.dashboard.fullSync();
+    // Number key shortcuts for quick actions
+    this.screen.key(['1'], () => {
+      this.dashboard.quickSync();
+    });
+
+    this.screen.key(['2'], () => {
+      this.dashboard.checkHealth();
+    });
+
+    this.screen.key(['3'], () => {
+      this.dashboard.cleanDuplicates();
+    });
+
+    this.screen.key(['4'], () => {
+      this.dashboard.toggleLogs();
+    });
+
+    this.screen.key(['5'], () => {
+      this.dashboard.showSettings();
+    });
+
+    this.screen.key(['6'], () => {
+      this.dashboard.showMetrics();
     });
 
     this.screen.key(['r', 'f5'], () => {
@@ -129,7 +150,7 @@ class TodoistThingsTUI {
         type: 'input',
         name: 'workerUrl',
         message: 'Cloudflare Worker URL:',
-        default: 'https://todoist-things-sync.thalys.workers.dev'
+        default: 'https://musubi-sync.workers.dev'
       },
       {
         type: 'password',

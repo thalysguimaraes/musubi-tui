@@ -221,7 +221,7 @@ export class Dashboard {
   }
   
   
-  private async checkHealth(): Promise<void> {
+  async checkHealth(): Promise<void> {
     this.activityLog.log('Running health check...');
     
     try {
@@ -239,7 +239,7 @@ export class Dashboard {
     this.screen.render();
   }
   
-  private async cleanDuplicates(): Promise<void> {
+  async cleanDuplicates(): Promise<void> {
     this.activityLog.log('Scanning for duplicates...');
     
     try {
@@ -271,6 +271,15 @@ Keyboard Shortcuts:
   F4        : Maintenance tools
   F5 / r    : Refresh status
   F6        : Settings
+  F7        : Metrics view
+  
+  Quick Actions (Number Keys):
+  1         : Three-way sync
+  2         : Check sync health
+  3         : Clean duplicates
+  4         : View detailed logs
+  5         : Settings & configuration
+  6         : View metrics
   
   s         : Three-way sync (all platforms)
   l         : Toggle log view
@@ -363,7 +372,7 @@ Press any key to close this help...`,
     } as any);
     
     // Streaming tail the combined log (read only new bytes)
-    const logPath = path.join(os.homedir(), '.todoist-things-sync', 'logs', 'combined.log');
+    const logPath = path.join(os.homedir(), '.musubi', 'logs', 'combined.log');
     let position = 0;
     
     const readInitial = () => {
