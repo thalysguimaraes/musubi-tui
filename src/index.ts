@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 import blessed from 'blessed';
+import path from 'path';
+import os from 'os';
 import { Dashboard } from './ui/components/Dashboard';
 import { SyncOrchestrator } from './services/sync/SyncOrchestrator';
 import { ConfigManager } from './services/config/ConfigManager';
@@ -169,6 +171,12 @@ class TodoistThingsTUI {
         name: 'interval',
         message: 'Sync interval (ms):',
         default: 900000
+      },
+      {
+        type: 'input',
+        name: 'scriptsPath',
+        message: 'Path to sync scripts directory:',
+        default: path.join(os.homedir(), 'Library', 'CloudStorage', 'SynologyDrive-Developer', 'personal', 'todoist-things-sync-engine', 'scripts')
       }
     ]);
 
@@ -184,6 +192,10 @@ class TodoistThingsTUI {
         ...cfg.sync,
         autoSync: !!answers.autoSync,
         interval: Number(answers.interval) || cfg.sync.interval
+      },
+      paths: {
+        ...cfg.paths,
+        scripts: answers.scriptsPath || cfg.paths.scripts
       }
     };
     await this.configManager.save(updated);

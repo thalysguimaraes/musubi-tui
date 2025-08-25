@@ -75,7 +75,7 @@ export class ConfigManager {
         retryAttempts: 3
       },
       paths: {
-        scripts: path.join(__dirname, '../../../../scripts'),
+        scripts: path.join(os.homedir(), 'Library', 'CloudStorage', 'SynologyDrive-Developer', 'personal', 'todoist-things-sync-engine', 'scripts'),
         logs: path.join(os.homedir(), '.musubi', 'logs')
       }
     };
