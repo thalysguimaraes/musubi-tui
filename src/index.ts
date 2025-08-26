@@ -152,7 +152,7 @@ class TodoistThingsTUI {
         type: 'input',
         name: 'workerUrl',
         message: 'Cloudflare Worker URL:',
-        default: 'https://musubi-sync.workers.dev'
+        default: 'https://todoist-things-sync.thalys.workers.dev'
       },
       {
         type: 'password',

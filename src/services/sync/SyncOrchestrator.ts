@@ -68,8 +68,8 @@ export class SyncOrchestrator {
           things: { count: 0, online: true, lastSync: 'n/a' }, // TODO: wire Things health
           obsidian: { count: 0, online: true, lastSync: 'n/a' } // TODO: add Obsidian metrics
         };
-      } catch (err) {
-        this.logger.warn('Health check failed, falling back to defaults');
+      } catch (err: any) {
+        this.logger.warn('Worker health check failed, falling back to script-based check', { error: err.message });
       }
     }
 

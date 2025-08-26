@@ -35,7 +35,7 @@ export class ScriptRunner {
         env: {
           ...process.env,
           // Add any required environment variables
-          TODOIST_THINGS_WORKER_URL: process.env.TODOIST_THINGS_WORKER_URL || 'https://musubi-sync.workers.dev'
+          TODOIST_THINGS_WORKER_URL: process.env.TODOIST_THINGS_WORKER_URL || 'https://todoist-things-sync.thalys.workers.dev'
         }
       });
       

@@ -88,7 +88,7 @@ Configuration is stored in `~/.musubi/config.json`:
 ```json
 {
   "api": {
-    "workerUrl": "https://musubi-sync.workers.dev",
+    "workerUrl": "https://todoist-things-sync.thalys.workers.dev",
     "todoistApiToken": "your-token-here"
   },
   "sync": {
