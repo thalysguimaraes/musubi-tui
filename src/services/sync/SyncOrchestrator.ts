@@ -92,6 +92,7 @@ export class SyncOrchestrator {
     try {
       const result = await this.scriptRunner.execute('check-sync-health.sh');
       const out = result.stdout || '';
+      // The health check script returns exit code 1 for warnings, which is OK
       // Parse Todoist and Things counts if present
       const todoistMatch = out.match(/Todoist tasks:\s*(\d+)/i);
       const thingsMatch = out.match(/Things tasks:\s*(\d+|N\/A)/i); // N/A if not running

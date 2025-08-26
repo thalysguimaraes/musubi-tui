@@ -35,7 +35,7 @@ export class ScriptRunner {
         env: {
           ...process.env,
           // Add any required environment variables
-          TODOIST_THINGS_WORKER_URL: process.env.TODOIST_THINGS_WORKER_URL || 'https://todoist-things-sync.thalys.workers.dev'
+          TODOIST_THINGS_WORKER_URL: process.env.TODOIST_THINGS_WORKER_URL || 'https://musubi-sync.workers.dev'
         }
       });
       
@@ -57,7 +57,15 @@ export class ScriptRunner {
     } catch (error: any) {
       const duration = Date.now() - startTime;
       
-      this.logger.error(`Script failed: ${scriptName}`, error);
+      // For health check scripts, exit code 1 is just a warning, not a failure
+      if (scriptName === 'check-sync-health.sh' && error.exitCode === 1) {
+        this.logger.info(`Health check completed with warnings`, {
+          exitCode: error.exitCode,
+          duration
+        });
+      } else {
+        this.logger.error(`Script failed: ${scriptName}`, error);
+      }
       
       return {
         stdout: error.stdout || '',
